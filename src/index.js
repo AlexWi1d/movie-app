@@ -1,6 +1,7 @@
 import React, { createContext } from 'react';
 import ReactDOM from 'react-dom';
-import { configureStore, applyMiddleware } from 'redux';
+import { applyMiddleware } from 'redux';
+import { configureStore } from '@reduxjs/toolkit'
 import thunk from 'redux-thunk';
 
 import App from './components/App';
@@ -31,7 +32,7 @@ const logger = ({ dispatch, getState }) => (next) => (action) => {
 //   next(action);
 // };
 
-const store = configureStore(rootReducer, applyMiddleware(logger, thunk));
+const store = configureStore({reducer :rootReducer}, applyMiddleware(logger, thunk));
 // console.log(store);
 console.log('state', store.getState());
 
