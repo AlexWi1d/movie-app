@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { addMovieToList, handleMovieSearch } from '../actions';
-import { data } from '../data';
-import { StoreContext } from '..';
+// import { data } from '../data';
+import { StoreContext, connect } from '..';
 
 class Navbar extends Component {
   constructor(props) {
@@ -66,4 +66,10 @@ class Navbar extends Component {
 //   }
 // }
 
-export default Navbar;
+function mapStateToProps({search}){
+  return {
+    search
+  }
+}
+
+export default connect(mapStateToProps)(Navbar);
